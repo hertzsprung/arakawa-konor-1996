@@ -8,18 +8,22 @@ FoamFile {
 }
 
 offCentre 0.5;
-SIgravityWaves true;
+SIgravityWaves false;
 
 divSchemes {
     default         none;
-    div(U,u)        Gauss cubicUpwindCPCFit false;
-    div(U,theta)    Gauss cubicUpwindCPCFit false;
+//    div(U,u)        Gauss cubicUpwindCPCFit false;
+//    div(U,theta)    Gauss cubicUpwindCPCFit false;
+    div(U,u)        Gauss linearUpwind grad(u);
+    div(U,theta)    Gauss linearUpwind grad(theta);
 }
 
 gradSchemes {
     default         none;
     grad(theta)     Gauss linear;
     grad(Exner)     Gauss linear;
+    grad(u)         Gauss linear;
+    grad(theta)     Gauss linear;
 }
 
 laplacianSchemes {

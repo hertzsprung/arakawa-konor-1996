@@ -4,6 +4,7 @@ rm -rf [0-9]*
 blockMesh
 setTheta
 setExnerBalancedH
+createSpongeLayer
 thermoVars
 cp constant/Uf 0/Uf
 cp constant/radiation 0/radiation
